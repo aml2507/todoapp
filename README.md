@@ -7,4 +7,4 @@ On MacOS      $ yarn install
               $ yarn start                         
 
 
-
+<br> React Version : 17.0.1
