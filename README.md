@@ -9,6 +9,8 @@ On MacOS      $ yarn install
 
 <br> React Version : 17.0.1
 
+
+----Just in case, but not necessary
 Firebase Auth
 <br>
 yarn add @react-firebase/auth
