@@ -8,3 +8,11 @@ On MacOS      $ yarn install
 
 
 <br> React Version : 17.0.1
+
+Firebase Auth
+<br>
+yarn add @react-firebase/auth
+<br>
+Firebase Realtime Database
+<br>
+yarn add @react-firebase/database
