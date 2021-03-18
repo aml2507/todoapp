@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import TodoList from './components/TodoList';
-import { BrowserRouter as Router, Route,Redirect } from "react-router-dom";
 import firebase from './firebase';
 require('firebase/auth');
 require('firebase/database');
@@ -8,31 +6,28 @@ require('firebase/database');
 export default class Login extends Component {
     constructor(props) {
         super(props);
-    this.login=this.login.bind(this);
+        this.login=this.login.bind(this);
     }
+
     login(){
-        let provider= new firebase.auth.GoogleAuthProvider();
+        const provider= new firebase.auth.GoogleAuthProvider();
 
-        firebase.auth().signInWithPopup(provider)
-        return(
-            <Router>
+
+        firebase.auth().signInWithPopup(provider).then((result) => {
+            console.log('Access Token y User Info', result);
+            window.location.replace('/todos');
+        });
+    }
+
+    render(){
+        return (
             <div>
-              <Route exact path='./components/TodoList' component={TodoList} />
-              <Redirect push to="/components/TodoList"/>
+                <button variant="contained" onClick={this.login} className="btnGoogle">
+                    LogIn with Google
+                </button>
             </div>
-          </Router>
-        )      
-}
-
-render(){
-    return (
-        <div>
-            <button variant="contained" onClick={this.login} className="btnGoogle">
-                LogIn with Google
-            </button>
-        </div>
-    );
-}
+        );
+    }
 }
 
 
